@@ -1,0 +1,28 @@
+{
+  "name": "bookStoreAPI",
+  "version": "1.0.0",
+  "description": "A sample application of node project called BookStoreAPI involving express, cors, winston, Postgresql(cloud, ElephantSQL), autentication/ authorization on Google and Facebook with passport, swagger doc, and others.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonio71/bookStoreAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonio71/bookStoreAPI/issues"
+  },
+  "homepage": "https://github.com/tonio71/bookStoreAPI#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.5",
+    "winston": "^3.3.3"
+  }
+}
