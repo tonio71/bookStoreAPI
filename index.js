@@ -1,7 +1,10 @@
 import express from "express";
 import cors from "cors";
 import winston from "winston";
-import clienteRouter from "./routes/cliente.route.js";
+import clientRouter from "./routes/client.route.js";
+import authorRouter from "./routes/author.route.js";
+import bookRouter from "./routes/book.route.js";
+import saleRouter from "./routes/sale.route.js";
 
 const { combine, timestamp, label, printf } = winston.format;
 
@@ -25,7 +28,10 @@ global.logger = winston.createLogger({
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use("/client", clienteRouter);
+app.use("/client", clientRouter);
+app.use("/author", authorRouter);
+app.use("/book", bookRouter);
+app.use("/sale", saleRouter);
 
 app.use((err, req, res, next) => {
   logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);
