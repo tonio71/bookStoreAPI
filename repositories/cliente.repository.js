@@ -1,5 +1,4 @@
-import DB from "./db.js";
-import Cliente from "../models/cliente.model.js";
+import Cliente from "../models/client.model.js";
 
 async function insertCliente(cliente) {
   try {

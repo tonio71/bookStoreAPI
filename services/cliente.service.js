@@ -6,11 +6,20 @@ async function createCliente(cliente) {
 }
 
 async function getClientes() {
-  return ClienteRepository.getClientes();
+  let clientes = await ClienteRepository.getClientes();
+  for (let index = 0; index < clientes.length; index++) {
+    delete clientes[index].dataValues.senha;
+  }
+  console.log(clientes);
+  return clientes;
 }
 
 async function getCliente(id) {
-  return ClienteRepository.getCliente(id);
+  let cliente = await ClienteRepository.getCliente(id);
+  if (cliente) {
+    delete cliente.dataValues.senha;
+  }
+  return cliente;
 }
 
 async function deleteCliente(id) {
