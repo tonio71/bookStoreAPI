@@ -1,5 +1,7 @@
 import BookRepository from "../repositories/book.repository.js";
+import BookInfoRepository from "../repositories/bookInfo.repository.js";
 import AuthorRepository from "../repositories/author.repository.js";
+import SaleRepository from "../repositories/sale.repository.js";
 
 async function createBook(book) {
   const autor = await AuthorRepository.getAuthor(book.autorId);
@@ -17,16 +19,20 @@ async function getBooks(autorId) {
 }
 
 async function getBook(id) {
-  return BookRepository.getBook(id);
+  let livro = await BookRepository.getBook(id);
+  if (livro) {
+    livro.dataValues.info = await BookInfoRepository.getBookInfo(parseInt(id));
+    console.log("n\n\n\n info livro ", livro);
+  }
+  return livro;
 }
 
 async function deleteBook(id) {
-  /* const animal = await AnimalRepository.getAnimaisByBookId(id);
+  const animal = await SaleRepository.getSalesByLivroId(id);
   if (animal.length === 0) {
     return BookRepository.deleteBook(id);
   }
-  throw new Error("Exclusão negada! Proprietário possui animal(is).");*/
-  return BookRepository.deleteBook(id);
+  throw new Error("Exclusão negada! O livro possui vendas cadastradas.");
 }
 
 async function updateBook(book) {

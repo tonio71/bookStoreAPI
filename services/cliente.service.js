@@ -1,5 +1,5 @@
 import ClienteRepository from "../repositories/cliente.repository.js";
-//import AnimalRepository from "../repositories/animal.repository.js";
+import SaleRepository from "../repositories/sale.repository.js";
 
 async function createCliente(cliente) {
   return ClienteRepository.insertCliente(cliente);
@@ -23,12 +23,11 @@ async function getCliente(id) {
 }
 
 async function deleteCliente(id) {
-  /* const animal = await AnimalRepository.getAnimaisByClienteId(id);
-  if (animal.length === 0) {
+  const venda = await SaleRepository.getSalesByClienteId(id);
+  if (venda.length === 0) {
     return ClienteRepository.deleteCliente(id);
   }
-  throw new Error("Exclusão negada! Proprietário possui animal(is).");*/
-  return ClienteRepository.deleteCliente(id);
+  throw new Error("Exclusão negada! Cliente possui compras.");
 }
 
 async function updateCliente(cliente) {

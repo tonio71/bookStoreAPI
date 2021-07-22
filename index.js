@@ -4,6 +4,7 @@ import winston from "winston";
 import clientRouter from "./routes/client.route.js";
 import authorRouter from "./routes/author.route.js";
 import bookRouter from "./routes/book.route.js";
+import bookInfoRouter from "./routes/bookInfo.route.js";
 import saleRouter from "./routes/sale.route.js";
 
 const { combine, timestamp, label, printf } = winston.format;
@@ -32,6 +33,7 @@ app.use("/client", clientRouter);
 app.use("/author", authorRouter);
 app.use("/book", bookRouter);
 app.use("/sale", saleRouter);
+app.use("/bookInfo", bookInfoRouter);
 
 app.use((err, req, res, next) => {
   logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);

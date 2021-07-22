@@ -1,5 +1,5 @@
 import AuthorRepository from "../repositories/author.repository.js";
-//import AnimalRepository from "../repositories/animal.repository.js";
+import BookRepository from "../repositories/book.repository.js";
 
 async function createAuthor(author) {
   return AuthorRepository.insertAuthor(author);
@@ -14,12 +14,11 @@ async function getAuthor(id) {
 }
 
 async function deleteAuthor(id) {
-  /* const animal = await AnimalRepository.getAnimaisByAuthorId(id);
-  if (animal.length === 0) {
+  const livros = await BookRepository.getBooksByAuthorId(id);
+  if (livros.length === 0) {
     return AuthorRepository.deleteAuthor(id);
   }
-  throw new Error("Exclusão negada! Proprietário possui animal(is).");*/
-  return AuthorRepository.deleteAuthor(id);
+  throw new Error("Exclusão negada! Autor possui livros cadastrados.");
 }
 
 async function updateAuthor(author) {
