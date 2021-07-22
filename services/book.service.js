@@ -22,7 +22,6 @@ async function getBook(id) {
   let livro = await BookRepository.getBook(id);
   if (livro) {
     livro.dataValues.info = await BookInfoRepository.getBookInfo(parseInt(id));
-    console.log("n\n\n\n info livro ", livro);
   }
   return livro;
 }

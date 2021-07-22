@@ -26,7 +26,6 @@ async function getBooks() {
 }
 
 async function getBooksByAuthorId(id) {
-  console.log("id do autor ", id);
   try {
     return await Book.findAll({
       where: { autorId: id },

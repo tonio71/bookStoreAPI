@@ -4,7 +4,6 @@ import { connect } from "./mongo.db.js";
 async function createBookInfo(bookInfo) {
   try {
     const mongoose = await connect();
-    console.log("conectado mongoose......");
     const BookInfo = mongoose.model("BookInfo", BookInfoSchema);
     bookInfo = new BookInfo(bookInfo);
     await bookInfo.save();

@@ -10,7 +10,6 @@ async function getClientes() {
   for (let index = 0; index < clientes.length; index++) {
     delete clientes[index].dataValues.senha;
   }
-  console.log(clientes);
   return clientes;
 }
 

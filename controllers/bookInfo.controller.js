@@ -6,8 +6,6 @@ async function createBookInfo(req, res, next) {
     if (!bookInfo.livroId) {
       throw new Error("Book ID é obrigatório.");
     }
-    console.log("CreateBookInfo controller......");
-
     await BookService.createBookInfo(bookInfo);
     res.end();
     logger.info(`POST /bookInfo - ${JSON.stringify(bookInfo)}`);

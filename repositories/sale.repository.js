@@ -28,7 +28,6 @@ async function getSales() {
 }
 
 async function getSalesByClienteId(id) {
-  console.log("id do autor ", id);
   try {
     let vendas = await Sale.findAll({
       include: [{ model: Cliente }, { model: Livro }],
@@ -44,7 +43,6 @@ async function getSalesByClienteId(id) {
 }
 
 async function getSalesByLivroId(id) {
-  console.log("id do autor ", id);
   try {
     let vendas = await Sale.findAll({
       include: [{ model: Cliente }, { model: Livro }],
@@ -60,12 +58,10 @@ async function getSalesByLivroId(id) {
 }
 
 async function getSalesByAutorId(id) {
-  console.log("id do autor ", id);
   try {
     let vendas = await Sale.findAll({
       include: [{ model: Livro, where: { autorId: id } }, { model: Cliente }],
     });
-    console.log(vendas);
     if (vendas) {
       vendas = excluirCampoSenha(vendas);
     }
