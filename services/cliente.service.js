@@ -30,6 +30,9 @@ async function deleteCliente(id) {
 }
 
 async function updateCliente(cliente) {
+  if(global.userName != cliente.email && global.userName != 'admin'){
+    throw new Error("Cliente pode alterar apenas seus próprios dados!");
+  }
   const old = await getCliente(cliente.clienteId);
   if (old) {
     return ClienteRepository.updateCliente(cliente);

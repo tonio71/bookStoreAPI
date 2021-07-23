@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,11 @@
     "pg": "^8.6.0",
     "sequelize": "^6.6.5",
     "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel-jest": "^27.0.6",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.4"
   }
 }
